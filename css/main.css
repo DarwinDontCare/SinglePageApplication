@@ -1,0 +1,148 @@
+
+#navbar {
+    background-color: rgba(37, 30, 65, 0.719);
+    height: 50px;
+    box-shadow: 0 5px 5px rgb(22, 24, 23);
+    text-align: center;
+    font-size: 2rem;
+    font: bold;
+    font-variant: small-caps;
+}
+
+#user_info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font: bold;
+}
+
+* {
+    -webkit-text-fill-color: white;
+}
+
+body {
+    background-color: rgb(37, 37, 37);
+}
+
+.list_element {
+    padding-right: 5rem; 
+    padding-top: 2rem;
+}
+
+#main_screen {
+    margin-top: 1rem;
+    margin-right: 4rem;
+    margin-left: 4rem;
+}
+
+#message_container {
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 3.2rem;
+}
+
+.user_element {
+    background-color: rgba(37, 30, 65, 0.719);
+    border-radius: 10px;
+    border-spacing: 5px;
+    padding-top: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 2px rgb(22, 24, 23);
+}
+
+.email_text {
+    font-size: 0.8rem;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    cursor: default;
+}
+
+.username_text {
+    font-size: larger;
+    font: outline;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    cursor: default;
+}
+
+#chat_screen {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+}
+
+#input_message {
+    position: relative;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+
+#send_message {
+    position: inherit;
+    height: 2.5rem;
+    width: 3rem;
+    border: none;
+    border-radius: 17px;
+    margin-left: 5px;
+    margin-bottom: 0.1rem;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+button {
+    -webkit-text-fill-color: black;
+    -webkit-text-stroke: 2px;
+    font-size: larger;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    background-color: white;
+}
+
+input {
+    -webkit-text-fill-color: black;
+}
+
+#back_to_main_screen {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    margin-left: -1rem;
+    margin-top: -1rem;
+    height: 2rem;
+    width: 2rem;
+    font-size: medium;
+    text-align: center;
+}
+
+#input_bar {
+    position: absolute;
+    margin-top: 1rem;
+    right: 2rem;
+    left: 2rem;
+    height: 2.5rem;
+}
+
+#input_div {
+    position: fixed;
+    left: 0;
+    top: 90%;
+    right: 0;
+    bottom: -10%;
+    background-color: rgba(37, 30, 65, 0.719);
+    box-shadow: 0 2px 2px rgb(22, 24, 23);
+}
