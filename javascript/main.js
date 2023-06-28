@@ -1,9 +1,16 @@
 let main_screen = document.getElementById("main_screen");
 let info_page = document.getElementById("identification_screen");
+let send_message_button = document.getElementById("send_message");
+let input_message = document.getElementById("input_message");
 
 let user_list = [];
-
 let screen_list = [];
+let messages = [];
+
+let current_email_messaging = "";
+
+input_message.addEventListener("keypress", SendMessage);
+send_message_button.addEventListener("click", SendMessage);
 
 function GetAPIInfo() {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -25,9 +32,11 @@ function GetAllScreens() {
 function AddUserToList(json) {
     for (var i = 0; i < 10; i++) {
         user_list.push(json[i]);
-    }
-    for (var i = 0; i < user_list.length; i++) {
-        CreateItemElement(user_list[i]);
+        CreateItemElement(json[i]);
+        messages.push({
+            "email": json[i].email,
+            "messages": []
+        });
     }
     console.log(user_list);
 }
@@ -38,10 +47,13 @@ function ShowChatScreen(event) {
         if (element.id != "chat_screen") {
             element.style.display = "none";
         } else {
+            document.getElementById("message_container").textContent = "";
+            current_email_messaging = event.target.getElementsByClassName("email_text")[0].textContent;
+            chat_message_array = messages.find(item => item.email == current_email_messaging).messages;
+            LoadMessages(chat_message_array);
             element.style.display = "flex";
             document.getElementById("user_info").getElementsByClassName("username_text")[0].textContent = event.target.getElementsByClassName("username_text")[0].textContent;
         }
-        console.log(element);
     });
 }
 
@@ -53,8 +65,74 @@ function ShowMainScreen() {
         } else {
             element.style.display = "flex";
         }
-        console.log(element);
     });
+}
+
+function SendMessage(event) {
+    if (event.target == send_message_button) {
+        AddMessageToArray(input_message.value, "user");
+        input_message.value = "";
+    } else if (event.key == "Enter") {
+        var isEmpty = true;
+        input_message.value.split(" ").forEach(element => {
+            if (element != "") isEmpty = false;
+        });
+        if (!isEmpty) {
+            AddMessageToArray(input_message.value, "user");
+            input_message.value = "";
+        }
+    }
+}
+
+function AddMessageToArray(text, user) {
+    var date = new Date().toLocaleString({ hour12: false });
+
+    var message = {
+        "id" : user,
+        "message" : text,
+        "date" : date
+    }
+    chat_message_array = messages.find(item => item.email == current_email_messaging);
+    chat_message_array.messages.push(message);
+    CreateMessageElement(user, text);
+}
+
+function LoadMessages(messages) {
+    for (var i = 0; i < messages.length; i++) {
+        CreateMessageElement(messages[i].id, messages[i].message);
+    }
+}
+
+function CreateMessageElement(user, text) {
+    if (user == "user") {
+        let div_parent = document.createElement("div");
+        div_parent.className = "message_div";
+
+        let div = document.createElement("div");
+        div.className = "sender_message";
+
+        let span = document.createElement("span");
+        span.textContent = text;
+        
+        div_parent.appendChild(div);
+        div.appendChild(span);
+
+        document.getElementById("message_container").appendChild(div_parent);
+    } else {
+        let div_parent = document.createElement("div");
+        div_parent.className = "message_div";
+
+        let div = document.createElement("div");
+        div.className = "receiver_message";
+
+        let span = document.createElement("span");
+        span.textContent = text;
+        
+        div_parent.appendChild(div);
+        div.appendChild(span);
+
+        document.getElementById("message_container").appendChild(div_parent);
+    }
 }
 
 function CreateItemElement(user_info) {

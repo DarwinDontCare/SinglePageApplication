@@ -117,6 +117,52 @@ input {
     -webkit-text-fill-color: black;
 }
 
+.message_div {
+    position: relative;
+    width: 60rem;
+    text-align: end;
+    align-items: end;
+}
+
+.sender_message {
+    position: relative;
+    background-color: rgba(37, 30, 65, 0.719);
+    height: fit-content;
+    width: fit-content;
+    display: inline-block;
+    right: -17.5rem;
+    text-align: end;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 5px;
+}
+
+.sender_message span {
+    position: relative;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.receiver_message {
+    position: relative;
+    background-color: rgb(66, 66, 66, 0.719);
+    height: fit-content;
+    width: fit-content;
+    left: 1rem;
+    text-align: start;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 5px;
+}
+
+.receiver_message span {
+    position: relative;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 #back_to_main_screen {
     position: absolute;
     top: 25px;
@@ -127,6 +173,7 @@ input {
     width: 2rem;
     font-size: medium;
     text-align: center;
+    box-shadow: 0 2px 2px rgb(22, 24, 23);
 }
 
 #input_bar {
