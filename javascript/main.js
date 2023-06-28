@@ -43,12 +43,12 @@ function AddUserToList(json) {
 
 function ShowChatScreen(event) {
     document.getElementById("back_to_main_screen").style.display = "flex";
+    current_email_messaging = event.target.getElementsByClassName("email_text")[0].textContent;
     screen_list.forEach(element => {
         if (element.id != "chat_screen") {
             element.style.display = "none";
         } else {
             document.getElementById("message_container").textContent = "";
-            current_email_messaging = event.target.getElementsByClassName("email_text")[0].textContent;
             chat_message_array = messages.find(item => item.email == current_email_messaging).messages;
             LoadMessages(chat_message_array);
             element.style.display = "flex";

@@ -60,6 +60,7 @@ body {
 }
 
 .email_text {
+    pointer-events: none;
     font-size: 0.8rem;
     padding-left: 10px;
     padding-bottom: 10px;
@@ -68,6 +69,7 @@ body {
 }
 
 .username_text {
+    pointer-events: none;
     font-size: larger;
     font: outline;
     padding-left: 10px;
