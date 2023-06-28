@@ -34,9 +34,10 @@ body {
 }
 
 #main_screen {
+    position: absolute;
     margin-top: 1rem;
-    margin-right: 4rem;
-    margin-left: 4rem;
+    right: 10rem;
+    left: 10rem;
 }
 
 #message_container {
