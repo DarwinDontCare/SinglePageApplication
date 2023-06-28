@@ -72,6 +72,7 @@ function SendMessage(event) {
     if (event.target == send_message_button) {
         AddMessageToArray(input_message.value, "user");
         input_message.value = "";
+        ReceiverSendMessage("ok!")
     } else if (event.key == "Enter") {
         var isEmpty = true;
         input_message.value.split(" ").forEach(element => {
@@ -80,8 +81,13 @@ function SendMessage(event) {
         if (!isEmpty) {
             AddMessageToArray(input_message.value, "user");
             input_message.value = "";
+            ReceiverSendMessage("ok!")
         }
     }
+}
+
+function ReceiverSendMessage(text) {
+    AddMessageToArray(text, "ai");
 }
 
 function AddMessageToArray(text, user) {
